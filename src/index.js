@@ -1,36 +1,38 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-function BookList(){
+function BookList() {
   return (
     <section>
-      <Book/>
-      <Book/>
-      <Book/>
-      <Book/>
+      <Book />
+      <Book />
+      <Book />
+      <Book />
     </section>
-  )
+  );
 }
 
-const Book=()=>{
+
+const Book = () => {
   return (
     <article>
-      <Image/>
-      <Title/>
-      <Author/>
+      <Image />
+      <Title />
+      <Author />
     </article>
-  )
-}
+  );
+};
 
-const Image=()=> <h2>Image Placeholder</h2>
-const Title=()=> <h2>Book title</h2>
-const Author=()=>{
-  return (
-    <h2>Author Name</h2>
-  )
-}
+const Image = () => (
+  <img
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgCrsQkyqbiMXTFEWNHhtcHmVySoBVh83S8LDVV4nDPYAHfZsA"
+    alt="Ramayan by Valmiki Ji"
+  />
+);
+const Title = () => <h2>Ramayana Book by Valmiki</h2>;
+const Author = () => {
+  return <h2>Author: Shree Valmiki</h2>;
+};
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<BookList/>);
-
-
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<BookList />);
