@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+import './index.css'
+
 function BookList() {
   return (
-    <section>
+    <section className="booklist">
       <Book />
       <Book />
       <Book />
@@ -15,7 +17,7 @@ function BookList() {
 
 const Book = () => {
   return (
-    <article>
+    <article className="book">
       <Image />
       <Title />
       <Author />
@@ -25,7 +27,7 @@ const Book = () => {
 
 const Image = () => (
   <img
-    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgCrsQkyqbiMXTFEWNHhtcHmVySoBVh83S8LDVV4nDPYAHfZsA"
+    src="./Images/Ramayan_BookCover1.jpg"
     alt="Ramayan by Valmiki Ji"
   />
 );
