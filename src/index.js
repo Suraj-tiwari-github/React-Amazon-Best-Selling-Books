@@ -32,8 +32,24 @@ const Image = () => (
   />
 );
 const Title = () => <h2>Ramayana Book by Valmiki</h2>;
+//jsx css here we have added the inline css, 
+//Sometimes it won't work while changing the same property
+// by using an external stylesheet.
+
+// const Author = () => {
+  // return <h2 style={{color:'#617d98',fontSize:'.85rem', marginTop:'.5rem'}}>Author: Shree Valmiki</h2>;
+// };
+
+// Let's create a object for the css , and use in the return statement of our Author component
+
+const inlinestyle={
+  color:'#617d98',
+  fontSize:'.85rem',
+  marginTop:'0.5rem',
+}
+
 const Author = () => {
-  return <h2>Author: Shree Valmiki</h2>;
+  return <h2 style={inlinestyle}>Author: Shree Valmiki</h2>;
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
