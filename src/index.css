@@ -22,6 +22,7 @@ body{
   .booklist{
      /* horizontally keeping a row with 3 cards */
     grid-template-columns: repeat(3,1fr);
+    align-items: start;
   }
 } 
 .book{
@@ -29,6 +30,7 @@ body{
   border-radius: 1rem;
   padding:2rem;
   text-align: center;
+  
 }
 .book img{
   width: 50%;

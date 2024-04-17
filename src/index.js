@@ -21,15 +21,34 @@ const secondBook = {
 function BookList() {
   return (
     <section className="booklist">
-      <Book author={firstBook.author} title={firstBook.title} img={firstBook.img}/>
-      <Book author={secondBook.author} title={secondBook.title} img={secondBook.img}/>
-      
+      <Book
+        author={firstBook.author}
+        title={firstBook.title}
+        img={firstBook.img}
+      >
+        {/* here we have added a children props
+        the component has to be rendered in <book> here goes the children props </bo0k> */}
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam
+          velit nemo consequuntur debitis rerum ad blanditiis necessitatibus.
+          Rem distinctio minima sit architecto fugit quis animi sunt. Atque
+          dolore dignissimos esse?
+        </p>
+        <button>Submit</button>
+      </Book>
+      <Book
+        author={secondBook.author}
+        title={secondBook.title}
+        img={secondBook.img}
+      />
     </section>
   );
 }
 
-const Book = (props) => {
-  console.log(props)
+// here we are going to use function destructuring.
+const Book = ({img, title, author, children}) => {
+  // console.log(props)
+  // const {img, title, author}=props;
   return (
     <article className="book">
       {/* <Image /> */}
@@ -40,9 +59,11 @@ const Book = (props) => {
       <h2>Ramayana Book by Valmiki</h2>
       <h2>Shree Valmiki</h2> */}
 
-      <img src={props.img} alt="Ramayan by Valmiki Ji" />
-      <h2>{props.title}</h2>
-      <h2>{props.author}</h2>
+      <img src={img} alt="Ramayan by Valmiki Ji" />
+      <h2>{title}</h2>
+      <h2>{author}</h2>
+      {/* here we are rendering the children props */}
+      {children}
       {/* // we cannot use statement like let x=6 in the js under component. for example */}
       {/* {<p> {let x=6 }</p>} */}
       {/* the above line will through an error because it is a statement, there have to return something */}
