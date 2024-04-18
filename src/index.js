@@ -11,15 +11,89 @@ const books = [
     author: "Shree Valmiki",
     title: "Ramayana Book by Valmiki",
     img: "./Images/Ramayan_BookCover1.jpg",
-    id:1,
+    id: 1,
   },
   {
     author: "Ved vyas",
     title: "Mahabharat",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1akxg7HB1ykbtj_hjZmim-NDed-dC1j4exVxTrd2FVXTLyWqn",
-    id:2,
+    id: 2,
   },
 ];
+
+const Book = ({ img, title, author,displayValue }) => {
+  // console.log(props);
+  // const {img, title, author}=props;
+
+  const displayTitle=()=>{
+    console.log({title})
+  }
+  return (
+    <article className="book">
+      <img src={img} alt={title} />
+      {/* <h2>{title}</h2> */}
+      <button onClick={displayValue}>Display some value</button>
+
+      <h2>{author}</h2>
+    </article>
+  );
+};
+
+const BookList = (props) => {
+  console.log(props);
+  const someValue='shakeandbake'
+  const displayValue=()=>{
+    console.log(someValue);
+  }
+  return (
+    <section className="booklist">
+      <EventExample/>
+      {books.map((book) => {
+        console.log(book);
+        return <Book {...book} key={book.id} displayValue={displayValue} />;
+      })}
+    </section>
+  );
+};
+
+//Events in React.js
+const EventExample = () => {
+  const handleFormInput=(e)=>{
+    console.log("handle form input")
+    console.log(e);
+    console.log(e.target.name);
+    console.log(e.target.value);
+  }
+  const handleButtonClick=()=>{
+    console.log('button is clicked');
+  }
+
+  const handleForSubmission=(e)=>{
+    e.preventDefault();
+    console.log('form submitted');
+  }
+  return (
+    <section>
+      <form onSubmit={handleForSubmission}>
+        <h2>Typical Form</h2>
+        <input
+          type="text"
+          name="example"
+          onChange={handleFormInput}
+          style={{ margin: "1rem 0" }}
+        />
+        <button type="submit" onClick={handleButtonClick}>
+          submit
+        </button>
+      </form>
+      <div>
+        <button onClick={() => console.log("button is anonymous")}>
+          Anonymous Button
+        </button>
+      </div>
+    </section>
+  );
+};
 
 // const firstBook={
 //    author :"Shree Valmiki",
@@ -33,34 +107,35 @@ const books = [
 //   img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1akxg7HB1ykbtj_hjZmim-NDed-dC1j4exVxTrd2FVXTLyWqn",
 // };
 
-function BookList() {
-  return (
-    <section className="booklist">
-      {books.map((book)=>{
-        console.log(book)
-        const {img,title, author, id}=book;
-        return (
-          // here we have added the key to avoid the unique key props warming in the console. 
-          <Book img={img} title={title} author={author} key={id}/>
-        )
-      })}
-    </section>
-  );
-}
+// function BookList() {
+//   return (
+//     <section className="booklist">
+//       {books.map((book)=>{
+//         console.log(book)
+//         // const {img,title, author, id}=book;
+//         return (
+//           // here we have added the key to avoid the unique key props warming in the console.
+//           <Book {...book} key={book.id}/>
+//         )
+//       })}
+//     </section>
+//   );
+// }
 
 // here we are going to use function destructuring.
-const Book = ({ img, title, author, children }) => {
-  
-  return (
-    <article className="book">
-      
-      <img src={img} alt="Ramayan by Valmiki Ji" />
-      <h2>{title}</h2>
-      <h2>{author}</h2>
-      
-    </article>
-  );
-};
+// const Book = (props) => {
+//   const {img, title, author}=props;
+//   console.log(props);
+//   return (
+//     <article className="book">
+
+//       <img src={img} alt="Ramayan by Valmiki Ji" />
+//       <h2>{title}</h2>
+//       <h2>{author}</h2>
+
+//     </article>
+//   );
+// };
 
 // const Image = () => (
 // Changing this multiples component into a single componenet. directly shifting this img tag into the book compo.
