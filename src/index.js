@@ -2,70 +2,28 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import "./index.css";
+
+import Book from "./Book";
+import { books } from "./books";
+
 const author = "Shree Valmiki";
 const title = "Ramayana Book by Valmiki";
 const img = "./Images/Ramayan_BookCover1.jpg";
 
-const books = [
-  {
-    author: "Shree Valmiki",
-    title: "Ramayana Book by Valmiki",
-    img: "./Images/Ramayan_BookCover1.jpg",
-    id: 1,
-  },
-  {
-    author: "Ved vyas",
-    title: "Mahabharat",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1akxg7HB1ykbtj_hjZmim-NDed-dC1j4exVxTrd2FVXTLyWqn",
-    id: 2,
-  },
-];
 
-const Book = ({ img, title, author,displayValue, getBook, id }) => {
-  // console.log(props);
-  // const {img, title, author}=props;
 
-  const displayTitle=()=>{
-    console.log({title})
-  }
 
-  const getSingleBook=()=>{
-    getBook(id);
-  }
-  return (
-    <article className="book">
-      <img src={img} alt={title} />
-      {/* <h2>{title}</h2> */}
-      <button onClick={displayValue}>Display some value</button>
-      {/* process by setup wrapper, next would be anonymous function */}
-      {/* <button onClick={getSingleBook}> get book</button> */}
-
-      {/* anonoymous function and then calling */}
-      <button onClick={()=>{getBook(id)}}>display</button>
-
-      <h2>{author}</h2>
-    </article>
-  );
-};
 
 const BookList = (props) => {
   console.log(props);
-  const someValue='shakeandbake'
-  const displayValue=()=>{
-    console.log(someValue);
-  }
-  const getBook=(id)=>{
-    const book=books.find((book)=>book.id===id);
-    console.log(book )
-    console.log("THis is a get book ")
-  }
-  // getBook(2);
+  // const someValue='shakeandbake'
+  
   return (
     <section className="booklist">
       <EventExample/>
       {books.map((book) => {
         console.log(book);
-        return <Book {...book} key={book.id} displayValue={displayValue} getBook={getBook} />;
+        return <Book {...book} key={book.id} />;
       })}
     </section>
   );
@@ -83,31 +41,31 @@ const EventExample = () => {
     console.log('button is clicked');
   }
 
-  const handleForSubmission=(e)=>{
-    e.preventDefault();
-    console.log('form submitted');
-  }
-  return (
-    <section>
-      <form onSubmit={handleForSubmission}>
-        <h2>Typical Form</h2>
-        <input
-          type="text"
-          name="example"
-          onChange={handleFormInput}
-          style={{ margin: "1rem 0" }}
-        />
-        <button type="submit" onClick={handleButtonClick}>
-          submit
-        </button>
-      </form>
-      <div>
-        <button onClick={() => console.log("button is anonymous")}>
-          Anonymous Button
-        </button>
-      </div>
-    </section>
-  );
+  // const handleForSubmission=(e)=>{
+  //   e.preventDefault();
+  //   console.log('form submitted');
+  // }
+  // return (
+  //   <section>
+  //     <form onSubmit={handleForSubmission}>
+  //       <h2>Typical Form</h2>
+  //       <input
+  //         type="text"
+  //         name="example"
+  //         onChange={handleFormInput}
+  //         style={{ margin: "1rem 0" }}
+  //       />
+  //       <button type="submit" onClick={handleButtonClick}>
+  //         submit
+  //       </button>
+  //     </form>
+  //     <div>
+  //       <button onClick={() => console.log("button is anonymous")}>
+  //         Anonymous Button
+  //       </button>
+  //     </div>
+  //   </section>
+  // );
 };
 
 // const firstBook={
