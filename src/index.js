@@ -21,18 +21,27 @@ const books = [
   },
 ];
 
-const Book = ({ img, title, author,displayValue }) => {
+const Book = ({ img, title, author,displayValue, getBook, id }) => {
   // console.log(props);
   // const {img, title, author}=props;
 
   const displayTitle=()=>{
     console.log({title})
   }
+
+  const getSingleBook=()=>{
+    getBook(id);
+  }
   return (
     <article className="book">
       <img src={img} alt={title} />
       {/* <h2>{title}</h2> */}
       <button onClick={displayValue}>Display some value</button>
+      {/* process by setup wrapper, next would be anonymous function */}
+      {/* <button onClick={getSingleBook}> get book</button> */}
+
+      {/* anonoymous function and then calling */}
+      <button onClick={()=>{getBook(id)}}>display</button>
 
       <h2>{author}</h2>
     </article>
@@ -45,12 +54,18 @@ const BookList = (props) => {
   const displayValue=()=>{
     console.log(someValue);
   }
+  const getBook=(id)=>{
+    const book=books.find((book)=>book.id===id);
+    console.log(book )
+    console.log("THis is a get book ")
+  }
+  // getBook(2);
   return (
     <section className="booklist">
       <EventExample/>
       {books.map((book) => {
         console.log(book);
-        return <Book {...book} key={book.id} displayValue={displayValue} />;
+        return <Book {...book} key={book.id} displayValue={displayValue} getBook={getBook} />;
       })}
     </section>
   );
