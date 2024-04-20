@@ -6,9 +6,9 @@ import "./index.css";
 import Book from "./Book";
 import { books } from "./books";
 
-const author = "Shree Valmiki";
-const title = "Ramayana Book by Valmiki";
-const img = "./Images/Ramayan_BookCover1.jpg";
+// const author = "Shree Valmiki";
+// const title = "Ramayana Book by Valmiki";
+// const img = "./Images/Ramayan_BookCover1.jpg";
 
 
 
@@ -19,13 +19,15 @@ const BookList = (props) => {
   // const someValue='shakeandbake'
   
   return (
-    <section className="booklist">
-      <EventExample/>
-      {books.map((book) => {
-        console.log(book);
-        return <Book {...book} key={book.id} />;
-      })}
-    </section>
+    <>
+    <h1>Must Read Books in the Universe</h1>
+      <section className="booklist">
+        {books.map((book, index) => {
+          console.log(book);
+          return <Book {...book} key={book.id} number={index} />;
+        })}
+      </section>
+    </>
   );
 };
 

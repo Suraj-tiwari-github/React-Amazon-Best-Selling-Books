@@ -1,4 +1,4 @@
-const Book = ({ img, title, author}) => {
+const Book = ({ img, title, author,number}) => {
   // console.log(props);
   // const {img, title, author}=props;
   return (
@@ -13,6 +13,7 @@ const Book = ({ img, title, author}) => {
       
 
       <h2>{author}</h2>
+      <span className='number'>{`${number+1}`}</span>
     </article>
   );
 };

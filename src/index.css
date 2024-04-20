@@ -30,10 +30,11 @@ body{
   border-radius: 1rem;
   padding:2rem;
   text-align: center;
+  position:relative;
   
 }
 .book img{
-  width: 50%;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -42,4 +43,22 @@ body{
   font-size:.85rem;
   margin-top:0.5rem;
   letter-spacing:2px;
+}
+
+.number{
+  position:absolute;
+  top:0;
+  left:0;
+  font-size:1rem;
+  padding:.75rem;
+  border-top-left-radius:1rem;
+  border-bottom-right-radius:1rem;
+  background-color: #c35600;
+  color:#fff;
+}
+
+h1{
+  text-align:center;
+  margin-top:4rem;
+  text-transform: capitalize;
 }
